@@ -31,7 +31,7 @@ async def on_ready():
 # Define the on_message event
 @client.event
 async def on_message(message):
-    if message.guild and message.guild.id == server_id and message.channel.id in channel_ids:
+    if message.guild and message.guild.id == server_id and message.channel.id in channel_ids and message.author.id not in user_ids:
         print(f"{colorama.Fore.RED}User ID: {colorama.Fore.YELLOW}{message.author.id}{colorama.Fore.RED} | {colorama.Fore.YELLOW}{message.author.name}{colorama.Fore.RED} | {colorama.Fore.YELLOW}{message.content}")
     if message.author.id in user_ids and message.guild and message.guild.id == server_id and message.channel.id in channel_ids:
             time = datetime.now().strftime("%H:%M:%S")
