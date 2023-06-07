@@ -33,7 +33,7 @@ async def on_ready():
 async def on_message(message):
     if message.guild and message.guild.id == server_id and message.channel.id in channel_ids:
         print(f"{colorama.Fore.RED}User ID: {colorama.Fore.YELLOW}{message.author.id}{colorama.Fore.RED} | {colorama.Fore.YELLOW}{message.author.name}{colorama.Fore.RED} | {colorama.Fore.YELLOW}{message.content}")
-        if message.author in users:
+    if message.author.id in user_ids:
             time = datetime.now().strftime("%H:%M:%S")
             print(f"{colorama.Style.RESET_ALL}[{colorama.Fore.GREEN}{message.author.name}{colorama.Style.RESET_ALL}]: {message.content} {colorama.Fore.YELLOW}[{time}]{colorama.Style.RESET_ALL}")
             await message.add_reaction(emoji)
